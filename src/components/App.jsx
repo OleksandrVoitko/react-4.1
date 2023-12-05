@@ -8,7 +8,7 @@ import phoneNumbers from "../data/phoneNumbers.json";
 import { DellAlert } from "./DellAlert/DellAlert";
 
 export const App = () => {
-  const [contacts, setContacts] = useState(phoneNumbers);
+  const [contacts, setContacts] = useState([]);
   const [filter, setFilter] = useState("");
   const [deleted, setDeleted] = useState(false);
   const [delName, setDelName] = useState("");
@@ -18,6 +18,8 @@ export const App = () => {
 
     if (localContacts) {
       setContacts(JSON.parse(localContacts));
+    } else {
+      setContacts(phoneNumbers);
     }
   }, []);
 
